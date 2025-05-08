@@ -8,6 +8,8 @@ The microphone’s electronics are quite simple: each button activates a resisto
 For example, when button "1" is pressed, wire SW1 sees 0 Ω and wire SW2 sees 27 kΩ.
 If button "0" is pressed, SW1 sees 27 + 39 + 82 kΩ, and SW2 sees 27 + 39 kΩ.
 
+For full details of the microphone's internal mechanism, refer to the schematic of the MH-48, the previous Yaesu model, which is fully compatible with radios supporting the SSM-85D. The schematic is available in the images folder.
+
 The idea is to use a digital potentiometer that can reproduce these resistor values programmatically. A good option is the **AD5204**, which provides a simple SPI interface to control four resistors between 0 and 100 kΩ. By combining the four channels, it's possible to create any value up to 400 kΩ, which is sufficient, as the highest needed value is 27 + 39 + 82 + 220 = 368 kΩ.
 
 Two AD5204 chips are needed to control the two lines independently. As shown in the diagram, both AD5204s are connected to the Raspberry Pi’s SPI hardware interface (a Raspberry Pi Zero is shown, but any model should work). The CS (Chip Select) pins are connected to two separate SPI channels, allowing the Pi to switch between the potentiometers.
