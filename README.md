@@ -14,3 +14,5 @@ Two AD5204 chips are needed to control the two lines independently. As shown in 
 
 The software sets the appropriate resistance values for each button press. The user interface is a basic keypad implemented using **NiceGUI**.
 Ensure that the SPI interface is enabled via `raspi-config`, so it's active at boot time.
+
+![Schematic](images/schematic.png)
